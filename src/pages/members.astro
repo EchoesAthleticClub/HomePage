@@ -3,8 +3,8 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE } from '../consts';
-import { members } from './members.js'; // メンバーデータ読み込み
-import MemberCard from './membercard.astro'; // カードコンポーネント読み込み
+import { members } from '../data/members.js';
+import MemberCard from '../components/MemberCard.astro';
 ---
 
 <!doctype html>
@@ -18,7 +18,7 @@ import MemberCard from './membercard.astro'; // カードコンポーネント�
       <h2>ここはメンバーのページだよ！</h2>
 
       <div class="member-grid">
-        {members.map(member => (
+        {members.map((member) => (
           <MemberCard {...member} />
         ))}
       </div>
@@ -42,3 +42,4 @@ import MemberCard from './membercard.astro'; // カードコンポーネント�
     margin-top: 1em;
   }
 </style>
+
