@@ -14,6 +14,23 @@ export const members = [
       intro: "弊チーム代表。シューズをいっぱい持っている。普段は研究者。ランニングも探求らしい。"
     },
     {
+      name: "Hiroki",
+      photo: "/blog-placeholder-4.jpg", // 画像パス
+      personalbest: {
+        "Marathon": "2:36",
+       },
+      intro: "陸上未経験、社会人から走り始めてマラソン2:36を達成したスーパーランナー。目指すは福岡国際マラソン出場！！"
+     },
+     {
+      name: "Takuto🐰",
+      photo: "/blog-placeholder-4.jpg", // 画像パス
+      personalbest: {
+        "100m": "?",
+       "Enbannage": "5m"
+      },
+      intro: "弊チームのスプリンター。理学療法士をもっているエンジニア。"
+     },
+    {
       name: "Moeko🐹",
       photo: "/moeko.png", // 画像パス
       personalbest: {
@@ -33,23 +50,7 @@ export const members = [
         },
         intro: "弊チームのロングスプリンター。800mアプローチで400mも走る。マラソンも走る。"
         },
-        {
-            name: "Takuto🐰",
-            photo: "/blog-placeholder-4.jpg", // 画像パス
-            personalbest: {
-              "100m": "11.32",
-              "Enbannage": "5m"
-            },
-            intro: "弊チームのスプリンター。理学療法士をもっているエンジニア。"
-            },
-         {
-            name: "Hiroki",
-            photo: "/blog-placeholder-4.jpg", // 画像パス
-            personalbest: {
-              "Marathon": "2:36",
-            },
-            intro: "陸上未経験、社会人から走り始めてマラソン2:36を達成したスーパーランナー。"
-            },
+        
          {
             name: "Koya",
             photo: "/blog-placeholder-4.jpg", // 画像パス
