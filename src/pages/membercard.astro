@@ -1,45 +1,41 @@
 ---
-// Propsを受け取る
-const { name, photo, personalbest, intro } = Astro.props;
+/**
+ * MemberCard（安全版）
+ * - props が未提供でも落ちないようにデフォルト値と型ガードを実装
+ */
+const {
+  name = "Member",
+  photo = "/images/default-member.jpg", // あるいは任意のダミー画像
+  personalbest = {},
+  intro = "",
+} = (Astro.props ?? {});
+
+const pb =
+  personalbest && typeof personalbest === "object" ? personalbest : {};
+const pbEntries = Object.entries(pb);
 ---
 <div class="member-card">
   <img src={photo} alt={`${name}の写真`} class="member-photo" />
   <h3>{name}</h3>
 
-  <ul class="pb-list">
-    {Object.entries(personalbest).map(([event, time]) => (
-      <li><strong>{event}</strong>: {time}</li>
-    ))}
-  </ul>
+  {pbEntries.length > 0 ? (
+    <ul class="pb-list">
+      {pbEntries.map(([event, time]) => (
+        <li><strong>{event}</strong>: {time}</li>
+      ))}
+    </ul>
+  ) : (
+    <p class="pb-empty">Personal Best は未設定です。</p>
+  )}
 
-  <p class="intro">{intro}</p>
+  {intro && <p class="intro">{intro}</p>}
 </div>
 
 <style>
-  .member-card {
-    border: 1px solid #ccc;
-    padding: 1em;
-    border-radius: 8px;
-    max-width: 300px;
-    background: #fdfdfd;
-  }
-  .member-photo {
-    width: 100%;
-    border-radius: 8px;
-    margin-bottom: 0.5em;
-  }
-  .pb-list {
-    list-style: none;
-    padding: 0;
-    margin: 0.5em 0;
-  }
-  .pb-list li {
-    font-size: 0.9em;
-    margin: 0.2em 0;
-  }
-  .intro {
-    font-size: 0.95em;
-    color: #333;
-    margin-top: 0.5em;
-  }
+  .member-card { border: 1px solid #ccc; padding: 1em; border-radius: 8px; max-width: 300px; background: #fdfdfd; }
+  .member-photo { width: 100%; border-radius: 8px; margin-bottom: 0.5em; }
+  .pb-list { list-style: none; padding: 0; margin: 0.5em 0; }
+  .pb-list li { font-size: 0.9em; margin: 0.2em 0; }
+  .pb-empty { font-size: 0.9em; color: #666; margin: 0.5em 0; }
+  .intro { font-size: 0.95em; color: #333; margin-top: 0.5em; }
 </style>
